@@ -7,7 +7,13 @@ html {
 
 body { background-color: #f2f2f2; }
 
-.container { margin: 0 auto; }
+.container { 
+  margin: 0 auto;
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .navbar {
   background-color: white;
@@ -15,36 +21,55 @@ body { background-color: #f2f2f2; }
   margin-bottom: 20px;
 }
 
+.main-nav {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
 .navbar img { width: 100px; }
 
 .navbar nav {
-  float: right;
   margin-top: 7px;
 }
 
 .navbar nav a {
   color: rgb(163, 163, 163);
   text-decoration: none;
-  margin-left: 10px;
-  padding: 10px 15px;
+  padding: 10px;
 }
 
 .navbar nav a.active { color: black; }
+
+.container .content {
+  display: flex;
+  flex-direction: row;
+}
 
 .blog-info {
   background-color: white;
   padding: 20px 25px;
 }
 
+.blog-info p a{
+  color: rgb(163, 163, 163);
+  text-decoration: none;
+}
+
 .blog-info .img-wrapper { text-align: center; }
 .blog-info img { width: 150px; }
 
-.blog-info .social { margin: 10px; }
+.blog-info .social { 
+  display: flex;
+  justify-content: space-evenly;
+}
 
 .blog-info .social a {
   text-decoration: none;
   font-size: 30px;
   text-align: center;
+  color: rgb(163, 163, 163);
+  text-decoration: none;
 }
 
 .blog-info .divider {
@@ -62,28 +87,47 @@ body { background-color: #f2f2f2; }
 
 .posts .post h2 { margin-top: 0; }
 
-@media (min-width: 768px) {
-  html { font-size: 18px; }
-
-  .container { width: 768px; }
-
-  .content { position: relative; }
-
-  .blog-info {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 250px;
+@media (min-width: 500px){
+  .main-nav {
+    flex-direction: row;
   }
 
-  .posts { padding-left: 300px; }
-
-  .posts .post img {
-    float: left;
-    width: 250px;
-  }
 }
 
+@media (min-width: 768px) {
+  html { font-size: 18px; }
+ .container {
+   width: 100%;
+   flex-direction: row;
+ }
+ .content {
+   display: flex;
+   flex-direction: row-reverse;
+   justify-content:space-between;
+   align-items: flex-start;
+ }
+ .blog-info {
+   width: 40%;
+ }
+ .posts {
+   display: flex;
+   flex-direction: column;
+   justify-content:space-between;
+   padding-left: 30px;
+ }
+ .post{
+   display: flex;
+   flex-direction: row;
+   justify-content:space-between;
+ }
+ .post .text{
+   display: flex;
+   flex-direction: column;
+ }
+ .posts .post img{
+   width: 250px;
+ }
+}
 
 @media (min-width: 992px) {
   html { font-size: 20px; }
